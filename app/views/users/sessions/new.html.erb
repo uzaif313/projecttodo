@@ -1,0 +1,28 @@
+<div class="dialog">
+    <div class="panel panel-default">
+        <p class="panel-heading no-collapse">Sign In</p>
+        <div class="panel-body">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-group">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true ,class:"form-controlspan12 form-control"%>
+            </div>
+            <div class="form-group">
+              <%= f.label :password %><br />
+              <%= f.password_field :password, autocomplete: "off",class:"form-controlspan12 form-control" %>
+            </div>
+            <%= f.submit "Sign In" ,class:"btn btn-primary pull-right" %>
+            <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>
+            <div class="clearfix"></div>
+          <% end %>
+        </div>
+        <div class="panel-footer">
+          <%= render "users/shared/links" %>
+        </div>
+    </div>
+</div>

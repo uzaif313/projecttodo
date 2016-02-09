@@ -1,0 +1,111 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <title>Bootstrap Admin</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <%= stylesheet_link_tag    'user', media: 'all', 'data-turbolinks-track' => true %>
+      <%= javascript_include_tag 'user', 'data-turbolinks-track' => true %>
+      <%= csrf_meta_tags %>
+      <script type="text/javascript">
+          $(function() {
+              $(".knob").knob();
+          });
+      </script>
+      <script type="text/javascript">
+          $(function() {
+              var match = document.cookie.match(new RegExp('color=([^;]+)'));
+              if(match) var color = match[1];
+              if(color) {
+                  $('body').removeClass(function (index, css) {
+                      return (css.match (/\btheme-\S+/g) || []).join(' ')
+                  })
+                  $('body').addClass('theme-' + color);
+              }
+
+              $('[data-popover="true"]').popover({html: true});
+
+          });
+      </script>
+      <style type="text/css">
+          #line-chart {
+              height:300px;
+              width:800px;
+              margin: 0px auto;
+              margin-top: 1em;
+          }
+          .navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+              color: #fff;
+          }
+      </style>
+      <script type="text/javascript">
+          $(function() {
+              var uls = $('.sidebar-nav > ul > *').clone();
+              uls.addClass('visible-xs');
+              $('#main-menu').append(uls.clone());
+          });
+      </script>
+
+
+
+
+  </head>
+  <body class=" theme-blue">
+
+
+      <div class="navbar navbar-default" role="navigation">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <a class="" href="#"><span class="navbar-brand"><span class="glyphicon glyphicon-send"></span> Project Todo</span></a></div>
+
+          <% if user_signed_in?%>
+            <div class="navbar-collapse collapse" style="height: 1px;">
+              <ul id="main-menu" class="nav navbar-nav navbar-right">
+                <li class="dropdown hidden-xs">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user padding-right-small" style="position:relative;top: 3px;"></span> <%= current_user.username%>
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </a>
+                  <ul class="dropdown-menu ">
+                    <li><a href="/users/edit">Update Account</a></li>
+                    <li class="divider"></li>
+                    <li><a tabindex="-1" href="users/sign_out" data-method="delete">Logout</a></li>
+                  </ul>
+                </li>
+
+            </div>
+            <%  end %>
+        </div>
+
+
+      <% if user_signed_in?%>
+        <div class="sidebar-nav">
+          <ul>
+              <li><a href="#" data-target=".dashboard-menu" class="nav-header collapsed" data-toggle="collapse"><i class="glyphicon glyphicon-dashboard"></i> Dashboard</a></li>
+              <li><a href="#" data-target=".accounts-menu" class="nav-header collapsed" data-toggle="collapse"><i class="glyphicon glyphicon-flash"></i> Your Todo Task </a></li>
+              <li><a href="#" data-target=".legal-menu" class="nav-header collapsed" data-toggle="collapse"><i class="glyphicon glyphicon-wrench"></i> View Todo Task</i></a></li>
+          </div>
+          <%  end %>
+          <div <% if user_signed_in?%> class="content" <%end%>>
+            <div class="">
+              <% flash.each do |key, value| %>
+              <div class="alert alert-<%= key %>"><%= value %></div>
+              <% end %>
+            </div>
+            <div class="panel panel-default">
+              <%=  yield  %>
+            </div>
+          </div>
+
+      <footer>
+          <hr>
+          <div style="clear:both;"></div>
+      </footer>
+  </body>
+  </html>
