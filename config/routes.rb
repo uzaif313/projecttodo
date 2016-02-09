@@ -4,11 +4,13 @@ Rails.application.routes.draw do
   get 'projects/index'
 
   get 'projects/edit'
-
+  get "dashboard"=> 'todos#index'
   get "user" =>'users#dashboard'
+  get "task" =>'todos#task'
+  post "todos/done"
   devise_scope :user do
     root :to => 'devise/sessions#new'
- end
+  end
   devise_for :users ,:controllers => { :registrations => "registrations",:sessions=>"sessions"}
   devise_for :admin ,:controllers => { :registrations => "registrations",:sessions=>"sessions"}
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

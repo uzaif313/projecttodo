@@ -1,0 +1,31 @@
+<div>
+  <h3 class="page-header text-center">    All Todos Task  </h3>
+  <table class="table">
+    <thead>
+        <tr>
+              <th>
+                Task
+              </th>
+              <th>
+                 Project
+              </th>
+              <th>
+                User
+              </th>
+              <th>
+                Status
+              </th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @todos.each do | todo | %>
+        <tr>
+          <td><%=todo.task%></td>
+          <td><%=todo.project.project_name%></td>
+          <td><%=todo.user.username%></td>
+          <td><%=todo.status?%></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

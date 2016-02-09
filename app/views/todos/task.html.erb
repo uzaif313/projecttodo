@@ -1,0 +1,50 @@
+<h2 class="text-center page-header">Your Task</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Taks</th>
+      <th>Project</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @todos.each do |todo|%>
+      <tr>
+        <td><%= todo.id %></td>
+        <td><%= todo.task %></td>
+        <td><%= todo.project.project_name%></td>
+        <td id="<%=todo.id%>">
+            <%= link_to "#",  confirm: 'Update?', class: 'task link-delete', 'data-message' => 'Are you sure to Update Stauts?', "data-task":todo.id,"data-status":!todo.status?,'data-severity' => 'danger' do %>
+              <% if todo.status? %>
+                <i class="glyphicon glyphicon-ok"></i>
+                  <% else %>
+                <i class="glyphicon glyphicon-remove"></i>
+              <%end %>
+            <% end %>
+
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $(function(){
+    $(".task").on("click",function(){
+      data={"status":$(this).attr("data-status"),"id":$(this).attr("data-task")}
+      console.log($(this).attr("data-status"))
+      $.ajax({
+        url:"/todos/done/",
+        data:data,
+        type:"post",
+        success:function(data){
+          console.log(data)
+        }
+      })
+    })
+  })
+</script>
+
+</script>
