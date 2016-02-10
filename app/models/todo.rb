@@ -1,6 +1,7 @@
 class Todo < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
+  include RailsAdminCharts
 
 rails_admin do
 

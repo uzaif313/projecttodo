@@ -30,23 +30,26 @@ RailsAdmin.config do |config|
 
 
 
- config.included_models = %w[ Project Todo User]
+ config.included_models = %w[ Project Todo User Report]
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
 
-
+  # config.actions do
+  #   all # NB: comment out this line for RailsAdmin < 0.6.0
+  # end
 
 
   config.actions do
     dashboard                     # mandatory
     index                         # mandatory
     new
-    export
+    # export
     bulk_delete
     show
     edit
     delete
-    show_in_app
+    charts
+    # show_in_app
 
     ## With an audit adapter, you can add:
     # history_index
