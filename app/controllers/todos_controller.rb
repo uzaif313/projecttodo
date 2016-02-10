@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   layout 'user'
-
+  before_action :authenticate_user! 
   def index
     @todos=Todo.joins(:project).joins(:user)
   end
