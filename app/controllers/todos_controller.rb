@@ -22,4 +22,11 @@ class TodosController < ApplicationController
      end
    end
   end
+
+
+  def task_wait
+    # render "task-wait"
+    @todos=Todo.joins(:project).joins(:user).where(:user_id => current_user.id,:status=>false)
+    # render json:@todos
+  end
 end

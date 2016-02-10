@@ -33,13 +33,15 @@
 <script type="text/javascript">
   $(function(){
     $(".task-link").delegate(".task","click",function(){
+      var el=$(this).parent().parent()
       data={"status":$(this).attr("data-status"),"id":$(this).attr("data-task")}
       $.ajax({
         url:"/todos/done/",
         data:data,
         type:"post",
         success:function(data){
-          // console.log(data)
+          el.remove();
+          console.log(el)
         }
       })
     })

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "dashboard"=> 'todos#index'
   get "user" =>'users#dashboard'
   get "task" =>'todos#task'
+  get "task-wait"=>"todos#task_wait"
   post "todos/done"
   devise_scope :user do
     root :to => 'devise/sessions#new'
