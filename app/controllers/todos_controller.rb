@@ -1,6 +1,6 @@
 class TodosController < ApplicationController
   layout 'user'
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
   def index
     @todos=Todo.joins(:project).joins(:user)
   end
@@ -26,7 +26,7 @@ class TodosController < ApplicationController
 
   def task_wait
     # render "task-wait"
-    @todos=Todo.joins(:project).joins(:user).where(:user_id => current_user.id,:status=>false)
+  @todos=Todo.joins(:project).joins(:user).where(:user_id => current_user.id,:status=>[false,nil])
     # render json:@todos
   end
 end
