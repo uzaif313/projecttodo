@@ -1,2 +1,24 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%=content_tag :div,class:"container " do %>
+  <%=content_tag :div,class:"page-header " do %>
+    <%= content_tag(:h2,"Project Managment Todo Application",class:"text-center")%>
+  <% end %>
+
+  <%=content_tag :div,class:"row" do %>
+      <%=content_tag :div,class:"col-md-6 " do %>
+        <%= image_tag( "/images/todo.png",align:"center") %>
+      <% end %>
+
+      <%=content_tag :div,class:"col-md-6 " do %>
+        <% unless user_signed_in?%>
+          <%= link_to new_user_session_path do %>
+            <%=content_tag :button ,"User Login", class:"btn-info btn-lg btn-block",style:"margin-bottom:1%;margin-top:30%"%>
+            <% end %>
+          <% end %>
+          <% unless admin_signed_in?%>
+            <%= link_to new_admin_session_path do %>
+              <%=content_tag :button ,"Admin Login", class:"btn-warning btn-lg btn-block"%>
+            <% end %>
+          <% end %>
+        <% end %>
+    <% end %>
+<% end %>

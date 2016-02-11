@@ -1,4 +1,5 @@
 class SessionsController < Devise::SessionsController
+  #Customise the Devise Session Create Method For Verify the Admin and User role
   def create
     type=params.keys[2]
       @user = User.find_by_email(params[type][:email])
@@ -16,9 +17,10 @@ class SessionsController < Devise::SessionsController
   end
   def after_sign_in_path_for(resource)
     if resource.role == "admin"
-       return  rails_admin_url
-    elsif resource.role == :user
-      return user_url
+      return  rails_admin_url
+    elsif resource.role == "user"
+      # return user_url
+      return dashboard_url
     end
   end
 

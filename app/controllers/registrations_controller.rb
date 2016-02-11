@@ -18,7 +18,7 @@ class RegistrationsController < Devise::RegistrationsController
      if resource.role == "admin"
        return  rails_admin_url
      elsif resource.role == "user"
-       return root_url
+       return dashboard_url
      end
    end
 

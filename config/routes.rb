@@ -9,9 +9,7 @@ Rails.application.routes.draw do
   get "task" =>'todos#task'
   get "task-wait"=>"todos#task_wait"
   post "todos/done"
-  devise_scope :user do
-    root :to => 'devise/sessions#new'
-  end
+  root :to => 'home#index'
   devise_for :users ,:controllers => { :registrations => "registrations",:sessions=>"sessions"}
   devise_for :admin ,:controllers => { :registrations => "registrations",:sessions=>"sessions"}
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'

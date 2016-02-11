@@ -30,7 +30,8 @@ RailsAdmin.config do |config|
 
 
 
- config.included_models = %w[ Project Todo User Report]
+  config.included_models = %w[Project Todo User]
+  config.excluded_models  = %w[Admin]
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
 
@@ -48,9 +49,8 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    charts
+    # charts
     # show_in_app
-
     ## With an audit adapter, you can add:
     # history_index
     # history_show
