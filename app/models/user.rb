@@ -4,6 +4,24 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :todos
+  include RailsAdminCharts
+
+  def self.graph_data since=2.days.ago
+   [
+     {
+         name: 'Admin Users',
+         pointInterval: point_interval = 1.day * 1000,
+         pointStart: start_point = since.to_i * 1000,
+         data: self.where(role: 'admin').delta_records_since(since)
+     },
+     {
+         name: 'Standard Users',
+         pointInterval: point_interval,
+         pointStart: start_point,
+         data: self.where(role: 'user').delta_records_since(since)
+     }
+   ]
+ end
   rails_admin do
     create do
       field :username do
