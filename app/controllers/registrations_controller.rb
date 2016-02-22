@@ -31,6 +31,8 @@ class RegistrationsController < Devise::RegistrationsController
    end
 
    def after_update_path_for(resource)
-       user_path(resource)
+      if resource.role == "user"
+        return dashboard_url;
+      end
    end
 end

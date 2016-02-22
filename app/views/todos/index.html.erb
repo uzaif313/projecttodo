@@ -18,14 +18,7 @@
         </tr>
     </thead>
     <tbody>
-        <% @todos.each do | todo | %>
-        <tr>
-          <td><%=todo.task%></td>
-          <td><%=todo.project.project_name%></td>
-          <td><%=todo.user.username%></td>
-          <td><%=todo.status?%></td>
-        </tr>
-        <% end %>
+      <%=render @todos %>
     </tbody>
   </table>
 </div>
