@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
   has_many :todos
   validates :project_name,:project_desc,:project_type,presence:true
-  include RailsAdminCharts
+  # include RailsAdminCharts
 
 
   rails_admin do

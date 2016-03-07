@@ -1,23 +1,23 @@
 class Todo < ActiveRecord::Base
   belongs_to :project
   belongs_to :user
-  include RailsAdminCharts
-  def self.graph_data since=30.days.ago
-   [
-     {
-         name: 'Completed Todo',
-         pointInterval: point_interval = 1.day * 1000,
-         pointStart: start_point = since.to_i * 1000,
-         data: self.where(status: true).delta_records_since(since)
-     },
-     {
-         name: 'Incomplete Todo',
-         pointInterval: point_interval,
-         pointStart: start_point,
-         data: self.where(status: false).delta_records_since(since)
-     }
-   ]
- end
+  # include RailsAdminCharts
+ #  def self.graph_data since=30.days.ago
+ #   [
+ #     {
+ #         name: 'Completed Todo',
+ #         pointInterval: point_interval = 1.day * 1000,
+ #         pointStart: start_point = since.to_i * 1000,
+ #         data: self.where(status: true).delta_records_since(since)
+ #     },
+ #     {
+ #         name: 'Incomplete Todo',
+ #         pointInterval: point_interval,
+ #         pointStart: start_point,
+ #         data: self.where(status: false).delta_records_since(since)
+ #     }
+ #   ]
+ # end
 rails_admin do
 
    list do
@@ -79,4 +79,9 @@ rails_admin do
 
 
 end
+    def charts
+    
+  end
+
+  
 end

@@ -1,5 +1,8 @@
+# require Rails.root.join("lib","rails_admin","charts.rb")
+# RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::Charts)
+require Rails.root.join('lib', 'rails_admin', 'impersonate_user.rb')
+RailsAdmin::Config::Actions.register(RailsAdmin::Config::Actions::ImpersonateUser)
 RailsAdmin.config do |config|
-
   ### Popular gems integration
 
    config.authenticate_with do
@@ -41,15 +44,16 @@ RailsAdmin.config do |config|
 
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard 
+    index 
     new
+    # charts
     # export
     bulk_delete
     show
     edit
     delete
-    charts
+    impersonate_user
     # show_in_app
     ## With an audit adapter, you can add:
     # history_index

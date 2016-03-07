@@ -29,4 +29,5 @@ class TodosController < ApplicationController
   @todos=Todo.joins(:project).joins(:user).where(:user_id => current_user.id,:status=>[false,nil])
     # render json:@todos
   end
+
 end

@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'rails_admin_dynamic_charts', github: 'openjaf/rails_admin_dynamic_charts'
 gem 'chartkick'
-gem 'rails_admin_charts'
+# gem 'rails_admin_charts'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
