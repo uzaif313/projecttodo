@@ -3,7 +3,7 @@ RailsAdmin::ApplicationHelper
   module RailsAdmin
     module ApplicationHelper
       def logout_path
-        raise main_app.inspect
+        # raise main_app.inspect
         main_app.send(:sign_out_path) rescue false
       end
     end

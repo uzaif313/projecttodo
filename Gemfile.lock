@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/openjaf/rails_admin_dynamic_charts.git
+  revision: 77e1640656f201b882c670b5352645795753c896
+  specs:
+    rails_admin_dynamic_charts (0.0.1)
+      chartkick (> 0)
+      rails (>= 3.2)
+      rails_admin (> 0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,6 +56,7 @@ GEM
     builder (3.2.2)
     byebug (8.2.2)
     callsite (0.0.11)
+    chartkick (1.4.1)
     coderay (1.1.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -221,6 +231,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   byebug
+  chartkick
   coffee-rails (~> 4.1.0)
   devise
   jbuilder (~> 2.0)
@@ -229,6 +240,7 @@ DEPENDENCIES
   rails (= 4.2.5)
   rails_admin
   rails_admin_charts
+  rails_admin_dynamic_charts!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
