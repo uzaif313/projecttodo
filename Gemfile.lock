@@ -1,12 +1,3 @@
-GIT
-  remote: git://github.com/openjaf/rails_admin_dynamic_charts.git
-  revision: 77e1640656f201b882c670b5352645795753c896
-  specs:
-    rails_admin_dynamic_charts (0.0.1)
-      chartkick (> 0)
-      rails (>= 3.2)
-      rails_admin (> 0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -82,6 +73,8 @@ GEM
     git-version-bump (0.15.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    groupdate (2.5.2)
+      activesupport (>= 3)
     haml (4.0.7)
       tilt
     i18n (0.7.0)
@@ -226,12 +219,12 @@ DEPENDENCIES
   chartkick
   coffee-rails (~> 4.1.0)
   devise
+  groupdate
   jbuilder (~> 2.0)
   jquery-rails
   meta_request
   rails (= 4.2.5)
   rails_admin
-  rails_admin_dynamic_charts!
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring

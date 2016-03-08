@@ -43,8 +43,10 @@ RailsAdmin.config do |config|
   # end
 
 
-  config.actions do
-    dashboard 
+  config.actions do 
+     dashboard do
+        statistics true
+     end
     index 
     new
     # charts
@@ -53,10 +55,11 @@ RailsAdmin.config do |config|
     show
     edit
     delete
-    impersonate_user
+    impersonate_user 
     # show_in_app
     ## With an audit adapter, you can add:
     # history_index
     # history_show
+   
   end
 end

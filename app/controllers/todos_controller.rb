@@ -30,4 +30,9 @@ class TodosController < ApplicationController
     # render json:@todos
   end
 
+  # def impersonate
+      
+  # end
+
+
 end

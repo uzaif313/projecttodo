@@ -25,8 +25,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'rails_admin_dynamic_charts', github: 'openjaf/rails_admin_dynamic_charts'
 gem 'chartkick'
+gem 'groupdate'
 # gem 'rails_admin_charts'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -4,7 +4,8 @@ module RailsAdmin
       class ImpersonateUser < RailsAdmin::Config::Actions::Base
         # This ensures the action only shows up for Users
         register_instance_option :visible? do
-          authorized? && bindings[:object].class == User
+          # authorized? && bindings[:object].class == Project
+          authorized? && bindings[:object].class == Todo
         end
         # We want the action on members, not the Users collection
         register_instance_option :member do
@@ -18,10 +19,15 @@ module RailsAdmin
           false
         end
 
+        # register_instance_option :root? do
+        #   true
+        # end
+
+
         register_instance_option :controller do
           Proc.new do
              @object.impersonate
-             redirect_to back_or_index
+             # redirect_to back_or_index
           end
       end
       end

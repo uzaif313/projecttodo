@@ -79,9 +79,14 @@ rails_admin do
 
 
 end
-    def charts
+
+ def charts
+       
+ end
+
+
+  def impersonate
     
   end
-
   
 end
