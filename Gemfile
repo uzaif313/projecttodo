@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'rails_admin'
+
 gem "twitter-bootstrap-rails"
 gem 'devise'
 # Use jquery as the JavaScript library
@@ -47,6 +48,7 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem "better_errors"
   gem 'meta_request'
+  gem 'rubocop', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
