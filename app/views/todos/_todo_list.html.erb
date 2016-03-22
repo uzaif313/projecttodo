@@ -4,11 +4,7 @@
         <td><%= todo.project.project_name%></td>
         <td id="<%=todo.id%>" class="task-link">
             <%= link_to "#",  confirm: 'Update?', class: 'task link-delete', 'data-message' => 'Are you sure to Update Stauts?', "data-task":todo.id,"data-status":!todo.status?,'data-severity' => 'danger' do %>
-              <% if todo.status? %>
-                <i class="glyphicon glyphicon-ok"></i>
-                  <% else %>
-                <i class="glyphicon glyphicon-remove"></i>
-              <%end %>
+              <%=todo_status(todo)%>
             <% end %>
 
         </td>

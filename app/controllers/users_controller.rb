@@ -2,7 +2,7 @@
 # User Managment Controller
 ###
 class UsersController < ApplicationController
-  layout 'user'
+  # layout 'user'
   before_action :authenticate_user!
   before_action :authenticate_admin!
 

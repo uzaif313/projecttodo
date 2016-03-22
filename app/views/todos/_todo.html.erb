@@ -2,9 +2,5 @@
           <td><%=todo.task%></td>
           <td><%=todo.project.project_name%></td>
           <td><%=todo.user.username%></td>
-          <td><% if todo.status? %>
-                <i class="glyphicon glyphicon-ok-circle"></i>
-                  <% else %>
-                <i class="glyphicon glyphicon-remove"></i>
-              <%end %></td>
+          <td><%=todo_status(todo)%>
         </tr>
